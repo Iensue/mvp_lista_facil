@@ -1,50 +1,46 @@
-# Welcome to your Expo app 👋
+## 🛠️ Tecnologias Utilizadas
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+* **React Native** (Framework principal)
+* **Expo** (Plataforma para facilitar o desenvolvimento e testes)
+* **JavaScript** (Linguagem)
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Como executar o projeto
 
-   ```bash
-   npm install
-   ```
+Para rodar este MVP localmente, siga as etapas abaixo:
 
-2. Start the app
+### Pré-requisitos
+Antes de começar, você precisa ter instalado em sua máquina:
+* [Node.js](https://nodejs.org/en/) (versão LTS recomendada)
+* **App Expo Go** no seu celular (Disponível na [Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent) ou [App Store](https://apps.apple.com/app/expo-go/id982107779))
 
-   ```bash
-   npx expo start
-   ```
+### Passo a passo
 
-In the output, you'll find options to open the app in a
+1.  **Clone o repositório** (ou baixe os arquivos):
+    ```bash
+    git clone [https://github.com/SEU-USUARIO/ListaFacil.git](https://github.com/SEU-USUARIO/ListaFacil.git)
+    ```
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+2.  **Acesse a pasta do projeto:**
+    ```bash
+    cd ListaFacil
+    ```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+3.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
 
-## Get a fresh project
+4.  **Execute o projeto:**
+    ```bash
+    npx expo start
+    ```
 
-When you're ready, run:
+5.  **Visualize no celular:**
+    * Após rodar o comando acima, um **QR Code** aparecerá no seu terminal.
+    * Abra o app **Expo Go** no seu celular.
+    * **Android:** Use a opção "Scan QR Code" dentro do app.
+    * **iOS (iPhone):** Abra a câmera nativa e aponte para o QR Code.
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+> **Obs:** Certifique-se de que seu celular e computador estejam conectados à mesma rede Wi-Fi. Caso tenha problemas de conexão, tente rodar com o comando: `npx expo start --tunnel`
