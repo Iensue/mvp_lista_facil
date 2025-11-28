@@ -4,25 +4,23 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useState } from 'react';
 import {
-    FlatList,
-    Modal,
-    SafeAreaView,
-    StyleSheet, Text,
-    TextInput, TouchableOpacity,
-    View
+  FlatList,
+  Modal,
+  SafeAreaView,
+  StyleSheet, Text,
+  TextInput, TouchableOpacity,
+  View
 } from 'react-native';
 
-// --- CORES E ESTILOS GERAIS (Baseado nas imagens) ---
 const COLORS = {
-  primary: '#5cb85c', // Verde principal
-  background: '#e8f5e9', // Fundo verde claro
+  primary: '#5cb85c', 
+  background: '#e8f5e9', 
   white: '#ffffff',
   text: '#333333',
   gray: '#888',
   lightGray: '#ddd'
 };
 
-// --- DADOS MOCKADOS (Promoções - Tela 4) ---
 const PROMOCOES = [
   { id: '1', nome: 'Arroz tipo 1 - 5kg', mercado: 'Mercado A', preco: 'R$25,00', img: 'nutrition' },
   { id: '2', nome: 'Oleo de soja 1 - 1l', mercado: 'Mercado C', preco: 'R$6,00', img: 'water' },
@@ -30,9 +28,8 @@ const PROMOCOES = [
   { id: '4', nome: 'Leite Integral - 1l', mercado: 'Mercado A', preco: 'R$ 3,99', img: 'pint' },
 ];
 
-// --- TELAS ---
 
-// 1. TELA DE LOGIN (Tela 1)
+
 function LoginScreen({ navigation }) {
   return (
     <View style={styles.containerCenter}>
@@ -60,7 +57,6 @@ function LoginScreen({ navigation }) {
   );
 }
 
-// 2. TELA DE CADASTRO (Tela 2)
 function RegisterScreen({ navigation }) {
   return (
     <View style={styles.containerCenter}>
@@ -83,10 +79,9 @@ function RegisterScreen({ navigation }) {
   );
 }
 
-// 3. TELA DE LISTAS + MODAL (Tela 3 e 5)
 function ListasScreen() {
   const [modalVisible, setModalVisible] = useState(false);
-  const [items, setItems] = useState([]); // Lista vazia inicial
+  const [items, setItems] = useState([]); 
   const [novoItem, setNovoItem] = useState('');
   const [quantidade, setQuantidade] = useState('');
 
@@ -106,14 +101,13 @@ function ListasScreen() {
       </View>
 
       {items.length === 0 ? (
-        // Estado Vazio (Tela 3)
         <View style={styles.emptyState}>
           <Ionicons name="cart-outline" size={80} color={COLORS.primary} />
           <Text style={styles.emptyText}>Você ainda não tem nenhuma lista</Text>
           <Text style={styles.emptySubText}>Crie sua primeira lista para começar</Text>
         </View>
       ) : (
-        // Lista com itens
+        
         <FlatList
           data={items}
           keyExtractor={(item) => item.id}
@@ -179,7 +173,6 @@ function ListasScreen() {
   );
 }
 
-// 4. TELA DE PROMOÇÕES (Tela 4)
 function PromocoesScreen() {
   return (
     <SafeAreaView style={styles.containerInfo}>
@@ -208,7 +201,6 @@ function PromocoesScreen() {
   );
 }
 
-// 5. TELA DE PERFIL (Tela 6)
 function PerfilScreen({ navigation }) {
   const menuItems = [
     { title: 'Alterar Senha', icon: 'lock-closed-outline' },
@@ -248,7 +240,6 @@ function PerfilScreen({ navigation }) {
   );
 }
 
-// 6. TELA MAPA (Placeholder para a Tab Bar)
 function MapaScreen() {
   return (
     <View style={styles.containerCenter}>
@@ -257,7 +248,6 @@ function MapaScreen() {
   );
 }
 
-// --- NAVEGAÇÃO ---
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -306,9 +296,7 @@ export default function App() {
   );
 }
 
-// --- ESTILOS CSS-IN-JS ---
 const styles = StyleSheet.create({
-  // Containers
   containerCenter: {
     flex: 1,
     backgroundColor: COLORS.background,
@@ -321,7 +309,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
   
-  // Login/Register
   logoContainer: { alignItems: 'center', marginBottom: 30 },
   logoText: { fontSize: 24, fontWeight: 'bold', color: COLORS.primary, marginTop: 10 },
   card: {
@@ -329,8 +316,8 @@ const styles = StyleSheet.create({
     width: '100%',
     padding: 20,
     borderRadius: 15,
-    elevation: 3, // Sombra Android
-    shadowColor: '#000', // Sombra iOS
+    elevation: 3, 
+    shadowColor: '#000', 
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
@@ -356,7 +343,6 @@ const styles = StyleSheet.create({
   linkTextBold: { textAlign: 'center', color: '#888', fontWeight: 'bold' },
   footerLogin: { marginTop: 10 },
 
-  // Listas
   header: { alignItems: 'center', marginTop: 20, marginBottom: 10 },
   headerTitle: { fontSize: 22, fontWeight: 'bold', color: 'darkgreen' },
   emptyState: { flex: 1, justifyContent: 'center', alignItems: 'center' },
@@ -385,7 +371,6 @@ const styles = StyleSheet.create({
   itemText: { fontSize: 16, fontWeight: 'bold' },
   qtdText: { color: COLORS.gray },
 
-  // Modal
   modalOverlay: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)' },
   modalContent: { backgroundColor: '#fff', width: '85%', padding: 20, borderRadius: 15 },
   modalTitle: { fontSize: 18, fontWeight: 'bold', color: 'darkgreen', textAlign: 'center', marginBottom: 20 },
@@ -395,7 +380,7 @@ const styles = StyleSheet.create({
   btnModal: { flex: 1, padding: 12, borderRadius: 20, alignItems: 'center', marginHorizontal: 5, backgroundColor: COLORS.primary },
   btnTextBlack: { color: '#333', fontWeight: 'bold' },
 
-  // Promoções
+  
   headerBack: { flexDirection: 'row', alignItems: 'center', padding: 15, backgroundColor: '#dcedc8' },
   headerTitleInline: { fontSize: 18, fontWeight: 'bold', marginLeft: 10, color: 'darkgreen' },
   promoCard: { flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, padding: 10, marginBottom: 10, alignItems: 'center' },
@@ -404,7 +389,7 @@ const styles = StyleSheet.create({
   promoMarket: { color: '#888', fontSize: 12 },
   promoPrice: { fontWeight: 'bold', marginTop: 5 },
 
-  // Perfil
+  
   profileHeader: { alignItems: 'center', paddingVertical: 20 },
   profileCard: { backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center', margin: 20, padding: 20, borderRadius: 15 },
   avatarPlaceholder: { width: 60, height: 60, borderRadius: 30, backgroundColor: '#ccc', marginRight: 15 },
